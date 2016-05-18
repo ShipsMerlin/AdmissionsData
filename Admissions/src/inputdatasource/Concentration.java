@@ -1,4 +1,4 @@
-package model;
+package inputdatasource;
 
 public enum Concentration
 {

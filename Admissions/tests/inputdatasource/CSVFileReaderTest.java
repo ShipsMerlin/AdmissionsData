@@ -1,4 +1,4 @@
-package datasource;
+package inputdatasource;
 import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;
@@ -8,12 +8,12 @@ import java.util.GregorianCalendar;
 
 import org.junit.Test;
 
-import datasource.CSVFileReader;
-import model.AdmissionsPopulation;
-import model.Concentration;
-import model.Decision;
-import model.Major;
-import model.Student;
+import inputdatasource.AdmissionsPopulation;
+import inputdatasource.CSVFileReader;
+import inputdatasource.Concentration;
+import inputdatasource.Decision;
+import inputdatasource.Major;
+import inputdatasource.StudentDataRecord;
 
 public class CSVFileReaderTest
 {
@@ -32,7 +32,7 @@ public class CSVFileReaderTest
 	public void getsFirstStudent() throws FileNotFoundException, ClassNotFoundException
 	{
 		CSVFileReader reader = new CSVFileReader("Applicant Detail Report.csv");
-		Student s = reader.getNextStudent();
+		StudentDataRecord s = reader.getNextStudent();
 		assertEquals(600284662, s.getID());
 		assertEquals("Marko", s.getFirstName());
 		assertEquals("Abdo", s.getLastName());
@@ -57,7 +57,7 @@ public class CSVFileReaderTest
 	{
 		CSVFileReader reader = new CSVFileReader("Applicant Detail Report.csv");
 		reader.getNextStudent();
-		Student s = reader.getNextStudent();
+		StudentDataRecord s = reader.getNextStudent();
 		assertEquals(600281374, s.getID());
 		assertEquals("Terrell", s.getFirstName());
 		assertEquals("Acosta", s.getLastName());

@@ -1,10 +1,10 @@
-package model;
+package inputdatasource;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class Student
+public class StudentDataRecord
 {
 	private int ID;
 	private String firstName;

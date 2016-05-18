@@ -1,19 +1,10 @@
-package datasource;
+package inputdatasource;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.Scanner;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
-import java.util.zip.ZipInputStream;
-
-import model.Student;
 
 public class CSVFileReader
 {
@@ -58,7 +49,7 @@ public class CSVFileReader
 
 	private void buildMappings() throws ClassNotFoundException
 	{
-		Class<?> studentClass = Class.forName("Student");
+		Class<?> studentClass = Class.forName("inputdatasource.StudentDataRecord");
 		Method[] methods = studentClass.getMethods();
 		mappings = new ArrayList<ColumnToSetter>();
 		mappings.add(new ColumnToSetter("ID", "setStudentID", methods));
@@ -94,11 +85,11 @@ public class CSVFileReader
 		return columns;
 	}
 
-	public Student getNextStudent() throws ClassNotFoundException
+	public StudentDataRecord getNextStudent() throws ClassNotFoundException
 	{
 		if (fileScanner.hasNext())
 		{
-			Student s = new Student();
+			StudentDataRecord s = new StudentDataRecord();
 			String line = fileScanner.nextLine();
 			String[] splitRow = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1);
 			for (int i = 0; i < splitRow.length; i++)
