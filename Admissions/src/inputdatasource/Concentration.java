@@ -2,11 +2,7 @@ package inputdatasource;
 
 public enum Concentration
 {
-	NONE(""),
-	GRAPHICS("Graphics"),
-	EMBEDDED("Embedded Systems"),
-	RELATED_DISCIPLINE("Related Discipline");
-
+	NONE(""), GRAPHICS("Graphics"), EMBEDDED("Embedded Systems"), RELATED_DISCIPLINE("Related Discipline");
 
 	private String xlsDescriptor;
 
@@ -14,9 +10,10 @@ public enum Concentration
 	{
 		this.xlsDescriptor = xlsDescriptor;
 	}
+
 	public static Concentration findForXLS(String xlsValue)
 	{
-		for(Concentration m:Concentration.values())
+		for (Concentration m : Concentration.values())
 		{
 			if (m.getXlsDescriptor().equals(xlsValue))
 			{
@@ -25,6 +22,7 @@ public enum Concentration
 		}
 		return Concentration.NONE;
 	}
+
 	private String getXlsDescriptor()
 	{
 		return xlsDescriptor;

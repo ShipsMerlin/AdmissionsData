@@ -1,5 +1,6 @@
 package model.statemachine;
 
-public interface AdmissionState {
+public interface AdmissionState
+{
 
 }

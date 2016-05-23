@@ -1,4 +1,5 @@
 package inputdatasource;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -117,8 +118,13 @@ public class StudentDataRecord
 
 	public void setLatestDecisionDate(String latestDecisionDate)
 	{
-		SimpleDateFormat formatter=new SimpleDateFormat("MMM d, yyyy HH:mm:ss a");//EEE MMM d HH:mm:ss zzz yyyy");
-		 try
+		SimpleDateFormat formatter = new SimpleDateFormat("MMM d, yyyy HH:mm:ss a");// EEE
+																					// MMM
+																					// d
+																					// HH:mm:ss
+																					// zzz
+																					// yyyy");
+		try
 		{
 			Date x = formatter.parse(latestDecisionDate);
 			this.latestDecisionDate = new GregorianCalendar();
@@ -128,7 +134,6 @@ public class StudentDataRecord
 			e.printStackTrace();
 		}
 	}
-
 
 	public void setMajor(String major)
 	{

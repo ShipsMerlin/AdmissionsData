@@ -1,4 +1,4 @@
-package datasource;
+package storeddatasource;
 
 /**
  * @author Merlin
@@ -52,7 +52,7 @@ public class DatabaseException extends Exception
 	{
 		return simpleDescription;
 	}
-	
+
 	/**
 	 * @see java.lang.Throwable#toString()
 	 */

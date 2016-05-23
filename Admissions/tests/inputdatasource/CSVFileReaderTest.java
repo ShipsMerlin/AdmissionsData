@@ -1,4 +1,5 @@
 package inputdatasource;
+
 import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;
@@ -23,7 +24,7 @@ public class CSVFileReaderTest
 	{
 		CSVFileReader reader = new CSVFileReader("Applicant Detail Report.csv");
 		ArrayList<String> columnNames = reader.getColumns();
-		assertEquals(47,columnNames.size());
+		assertEquals(47, columnNames.size());
 		assertEquals("HISPANIC_LATINO_ETHNICITY_IND", columnNames.get(29));
 		assertEquals("ID", columnNames.get(0));
 	}
