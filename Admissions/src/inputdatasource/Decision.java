@@ -1,9 +1,8 @@
-package model;
+package inputdatasource;
 
 public enum Decision
 {
-	ACCEPTED("Accepted"),
-	CONFIRMED("Deposit Paid/Confirmed");
+	ACCEPTED("Accepted"), CONFIRMED("Deposit Paid/Confirmed");
 
 	private String xlsDescriptor;
 
@@ -11,9 +10,10 @@ public enum Decision
 	{
 		this.xlsDescriptor = xlsDescriptor;
 	}
+
 	public static Decision findForXLS(String xlsValue)
 	{
-		for(Decision m:Decision.values())
+		for (Decision m : Decision.values())
 		{
 			if (m.getXlsDescriptor().equals(xlsValue))
 			{
@@ -22,6 +22,7 @@ public enum Decision
 		}
 		return null;
 	}
+
 	private String getXlsDescriptor()
 	{
 		return xlsDescriptor;

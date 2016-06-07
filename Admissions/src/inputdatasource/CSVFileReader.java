@@ -1,4 +1,4 @@
-package datasource;
+package inputdatasource;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,15 +7,6 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import model.Student;
-
-/**
- * Reads a CVS file that is a snapshot of admissions including demographic
- * information and latest decision information
- *
- * @author Merlin
- *
- */
 public class CSVFileReader
 {
 
@@ -49,15 +40,6 @@ public class CSVFileReader
 	private ArrayList<String> columns;
 	private Scanner fileScanner;
 
-	/**
-	 * @param fileTitle
-	 *            the title of the CSV file
-	 * @throws FileNotFoundException
-	 *             if we can't open the file for reading
-	 * @throws ClassNotFoundException
-	 *             This will only happen if this class's internal mappings for
-	 *             how to handle the various columns of the file are mis-coded.
-	 */
 	CSVFileReader(String fileTitle) throws FileNotFoundException, ClassNotFoundException
 	{
 		fileScanner = new Scanner(new File(fileTitle));
@@ -68,7 +50,7 @@ public class CSVFileReader
 
 	private void buildMappings() throws ClassNotFoundException
 	{
-		Class<?> studentClass = Class.forName("Student");
+		Class<?> studentClass = Class.forName("inputdatasource.StudentDataRecord");
 		Method[] methods = studentClass.getMethods();
 		mappings = new ArrayList<ColumnToSetter>();
 		mappings.add(new ColumnToSetter("ID", "setStudentID", methods));
@@ -99,24 +81,16 @@ public class CSVFileReader
 		}
 	}
 
-	/**
-	 * The only reason this isn't private is for testing purposes
-	 * @return a list of all of the column names in the file
-	 */
 	ArrayList<String> getColumns()
 	{
 		return columns;
 	}
 
-	/**
-	 * @return the next student in the file
-	 * @throws ClassNotFoundException Only if the mappings for how to handle each column are mis-coded
-	 */
-	public Student getNextStudent() throws ClassNotFoundException
+	public StudentDataRecord getNextStudent() throws ClassNotFoundException
 	{
 		if (fileScanner.hasNext())
 		{
-			Student s = new Student();
+			StudentDataRecord s = new StudentDataRecord();
 			String line = fileScanner.nextLine();
 			String[] splitRow = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1);
 			for (int i = 0; i < splitRow.length; i++)
