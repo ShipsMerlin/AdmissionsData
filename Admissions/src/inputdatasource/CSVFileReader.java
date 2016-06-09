@@ -7,6 +7,12 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Reads a CVS file (currently generated from banner) to create a sequence of StudentRecords representing the values in that file.  Create
+ * an object for the file.  Then the getNextStudent method can be called iteratively to see all of the students in that file.
+ * @author Merlin
+ *
+ */
 public class CSVFileReader
 {
 
@@ -40,6 +46,12 @@ public class CSVFileReader
 	private ArrayList<String> columns;
 	private Scanner fileScanner;
 
+	/**
+	 * Create a reader for a given file
+	 * @param fileTitle the file system's name for the file (may or may not include the path)
+	 * @throws FileNotFoundException if there is no file with that name
+	 * @throws ClassNotFoundException this exception reflects in internal coding problem in the mappings in this file
+	 */
 	CSVFileReader(String fileTitle) throws FileNotFoundException, ClassNotFoundException
 	{
 		fileScanner = new Scanner(new File(fileTitle));
@@ -81,11 +93,18 @@ public class CSVFileReader
 		}
 	}
 
+	/**
+	 * @return a list of the names of the columns (only visible for testing purposes)
+	 */
 	ArrayList<String> getColumns()
 	{
 		return columns;
 	}
 
+	/**
+	 * @return a record holding the information for the next student in the file.
+	 * @throws ClassNotFoundException this exception reflects in internal coding problem in the mappings in this file
+	 */
 	public StudentDataRecord getNextStudent() throws ClassNotFoundException
 	{
 		if (fileScanner.hasNext())

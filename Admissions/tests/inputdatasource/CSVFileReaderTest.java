@@ -16,9 +16,19 @@ import inputdatasource.Decision;
 import inputdatasource.Major;
 import inputdatasource.StudentDataRecord;
 
+/**
+ * Tests CVSFileReader
+ * @author Merlin
+ *
+ */
 public class CSVFileReaderTest
 {
 
+	/**
+	 * can it get the columns from the file correctly
+	 * @throws FileNotFoundException shouldn't
+	 * @throws ClassNotFoundException shouldn't
+	 */
 	@Test
 	public void getsColumns() throws FileNotFoundException, ClassNotFoundException
 	{
@@ -29,6 +39,11 @@ public class CSVFileReaderTest
 		assertEquals("ID", columnNames.get(0));
 	}
 
+	/**
+	 * Verifies that the first student in the test file is read correctly
+	 * @throws FileNotFoundException shouldn't
+	 * @throws ClassNotFoundException shouldn't
+	 */
 	@Test
 	public void getsFirstStudent() throws FileNotFoundException, ClassNotFoundException
 	{
@@ -53,6 +68,11 @@ public class CSVFileReaderTest
 
 	}
 
+	/**
+	 * Verifies that the first student in the test file is read correctly
+	 * @throws FileNotFoundException shouldn't
+	 * @throws ClassNotFoundException shouldn't
+	 */
 	@Test
 	public void getsSecondStudent() throws FileNotFoundException, ClassNotFoundException
 	{
@@ -78,6 +98,11 @@ public class CSVFileReaderTest
 
 	}
 
+	/**
+	 * Makes sure we return a null pointer when there is no more data
+	 * @throws FileNotFoundException shouldn't
+	 * @throws ClassNotFoundException shouldn't
+	 */
 	@Test
 	public void nullStudentWhenFinished() throws FileNotFoundException, ClassNotFoundException
 	{

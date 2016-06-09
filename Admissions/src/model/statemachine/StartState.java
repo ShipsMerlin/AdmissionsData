@@ -1,6 +1,11 @@
 package model.statemachine;
 
-public class StartState
+/**
+ * Where a student starts
+ * @author Merlin
+ *
+ */
+public class StartState implements AdmissionState
 {
 
 }

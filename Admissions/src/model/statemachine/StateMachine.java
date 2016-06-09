@@ -1,5 +1,10 @@
 package model.statemachine;
 
+/**
+ * This encapsulates the milestones and actions that are required by the acceptance process
+ * @author Merlin
+ *
+ */
 public class StateMachine
 {
 
@@ -9,7 +14,7 @@ public class StateMachine
 	private class Transition
 	{
 
-		public Transition(Class<?> currentState, Class<? extends ConditionVerifier> condition, Class<?> nextState,
+		public Transition(Class<? extends AdmissionState> currentState, Class<? extends ConditionVerifier> condition, Class<? extends AdmissionState> nextState,
 				Class<? extends Action> action)
 		{
 			super();
@@ -19,9 +24,9 @@ public class StateMachine
 			this.action = action;
 		}
 
-		Class<?> currentState;
-		Class<?> nextState;
-		Class<? extends ConditionVerifier> condition;
-		Class<? extends Action> action;
+		private Class<? extends AdmissionState> currentState;
+		private Class<? extends AdmissionState> nextState;
+		private Class<? extends ConditionVerifier> condition;
+		private Class<? extends Action> action;
 	}
 }
